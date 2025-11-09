@@ -23,7 +23,7 @@ module tt_um_project (
   // List all unused inputs to prevent warnings
   wire _unused = &{ena, 1'b0};
 
-  reg [7:0] y_q;
+  reg [7:0] y_q = 0;
 
   always @(posedge clk) begin
       if (!rst_n) begin
