@@ -39,10 +39,14 @@ module tt_um_project (
 
   // Memory process
   always @(posedge clk) begin
+    if (!rst_n) begin
+      mem_rdata <= 0;
+    end else begin
       if (mem_wr) begin
           memory[mem_addr] <= mem_wdata;
       end
       mem_rdata <= memory[mem_addr];
+    end
   end
 
   assign uo_out = mem_rdata;
